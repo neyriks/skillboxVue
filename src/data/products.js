@@ -5,7 +5,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
-    color: ['#73B6EA', '#8BE000'],
+    colorsId: [1, 2],
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export default [
     title: 'Ультразвуковая зубная щётка Playbrush Smart Sonic',
     price: 5660,
     image: '/img/toothbrush.jpg',
-    color: ['#73B6EA', '#222'],
+    colorsId: [1, 3],
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export default [
     title: 'Смартфон Xiaomi Mi Mix 3 6/128GB ',
     price: 21790,
     image: '/img/phone.jpg',
-    color: ['#73B6EA', '#222'],
+    colorsId: [5, 3],
   },
   {
     id: 4,
@@ -29,6 +29,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5],
   },
   {
     id: 5,
@@ -36,6 +37,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5, 3],
   },
   {
     id: 6,
@@ -43,6 +45,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5, 3],
   },
 
   {
@@ -51,6 +54,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5, 3],
   },
   {
     id: 8,
@@ -58,6 +62,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5, 3],
   },
   {
     id: 9,
@@ -65,6 +70,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5, 3],
   },
   {
     id: 10,
@@ -72,6 +78,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5, 3],
   },
   {
     id: 11,
@@ -79,6 +86,7 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5, 3],
   },
   {
     id: 12,
@@ -86,5 +94,6 @@ export default [
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
+    colorsId: [5, 3],
   },
 ];
