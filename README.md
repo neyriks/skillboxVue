@@ -26,5 +26,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ///
-
+Module 4 = vue filter
 Module 5 = vue router start
