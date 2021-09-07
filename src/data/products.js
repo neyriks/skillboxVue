@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -9,7 +9,7 @@ export default [
   },
   {
     id: 2,
-    caregoryId: 1,
+    categoryId: 1,
     title: 'Ультразвуковая зубная щётка Playbrush Smart Sonic',
     price: 5660,
     image: '/img/toothbrush.jpg',
@@ -17,7 +17,7 @@ export default [
   },
   {
     id: 3,
-    caregoryId: 2,
+    categoryId: 2,
     title: 'Смартфон Xiaomi Mi Mix 3 6/128GB ',
     price: 21790,
     image: '/img/phone.jpg',
@@ -25,7 +25,7 @@ export default [
   },
   {
     id: 4,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -33,7 +33,7 @@ export default [
   },
   {
     id: 5,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -41,7 +41,7 @@ export default [
   },
   {
     id: 6,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -50,7 +50,7 @@ export default [
 
   {
     id: 7,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -58,7 +58,7 @@ export default [
   },
   {
     id: 8,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -66,7 +66,7 @@ export default [
   },
   {
     id: 9,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -74,7 +74,7 @@ export default [
   },
   {
     id: 10,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -82,7 +82,7 @@ export default [
   },
   {
     id: 11,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',
@@ -90,7 +90,7 @@ export default [
   },
   {
     id: 12,
-    caregoryId: 4,
+    categoryId: 4,
     title: 'Радионяня Motorola MBP16',
     price: 3690,
     image: '/img/radio.jpg',

@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable max-len -->
   <li class="catalog__item">
-    <a class="catalog__pic" href="#" @click.prevent="$emit('gotoPage', 'product', {id: product.id})">
+    <a class="catalog__pic" href="#" @click.prevent="gotoPage('product', {id: product.id})">
       <img :src="product.image" :alt="product.title">
     </a>
 
@@ -12,7 +12,7 @@
     </h3>
 
     <span class="catalog__price">
-      {{ product.price }} ₽
+      {{ product.price | numberFormat}} ₽
     </span>
 
     <ProductColors :colorfilter='colorfilter' :selected-color.sync='color'/>
@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import gotoPage from '@/helpers/gotoPage';
+import numberFormat from '@/helpers/numberFormat';
 import colorfilter from '../data/colorfilter';
 import ProductColors from './ProductColors.vue';
 
@@ -30,6 +32,9 @@ export default {
     };
   },
   props: ['product'],
+  filters: {
+    numberFormat,
+  },
   computed: {
     colorfilter() {
       return colorfilter.filter((color) => this.product.colorsId.includes(color.colorId));
@@ -38,5 +43,6 @@ export default {
   components: {
     ProductColors,
   },
+  methods: { gotoPage },
 };
 </script>
