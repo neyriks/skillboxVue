@@ -59,9 +59,9 @@ export default {
         // eslint-disable-next-line max-len
         filteredProducts = filteredProducts.filter((product) => product.price <= this.filterPriceTo);
       }
-      if (this.filterCategoryId > 0) {
+      if (this.filterCategoryId) {
         // eslint-disable-next-line max-len
-        filteredProducts = filteredProducts.filter((product) => product.caregoryId === this.filterCategoryId);
+        filteredProducts = filteredProducts.filter((product) => product.categoryId === this.filterCategoryId);
       }
       if (this.filterColor) {
         // eslint-disable-next-line max-len
