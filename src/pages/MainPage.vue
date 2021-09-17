@@ -71,5 +71,10 @@ export default {
       return filteredProducts;
     },
   },
+  watch: {
+    countProducts() {
+      this.page = 1;
+    },
+  },
 };
 </script>

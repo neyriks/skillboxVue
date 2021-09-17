@@ -22,10 +22,9 @@
     </div>
   </header>
 
-  <component
-  :is='currentPageComponent'
-  :page-params='currentPageParams'/>
-    <footer class="footer">
+  <router-view/>
+
+  <footer class="footer">
     <div class="footer__wrapper container">
       <ul class="footer__links">
         <li>
@@ -120,37 +119,7 @@
 </template>
 
 <script>
-import eventBus from '@/eventBus';
-import MainPage from './pages/MainPage.vue';
-import ProductPage from './pages/ProductPage.vue';
-import NotFoundPage from './pages/NotFoundPage.vue';
-
-const routes = {
-  main: 'MainPage',
-  product: 'ProductPage',
-};
-
 export default {
-  data() {
-    return {
-      currentPage: 'main',
-      currentPageParams: {},
-    };
-  },
-  methods: {
-    gotoPage(pageName, pageParams) {
-      this.currentPage = pageName;
-      this.currentPageParams = pageParams || {};
-    },
-  },
-  computed: {
-    currentPageComponent() {
-      return routes[this.currentPage] || 'NotFoundPage';
-    },
-  },
-  components: { MainPage, ProductPage, NotFoundPage },
-  created() {
-    eventBus.$on('gotoPage', (pageName, pageParams) => this.gotoPage(pageName, pageParams));
-  },
+
 };
 </script>
