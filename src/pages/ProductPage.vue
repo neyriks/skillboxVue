@@ -104,7 +104,7 @@
                   </svg>
                 </button>
 
-                <input type="text"  v-model='productAmount'>
+                <input type="text"  v-model.number='productAmount'>
 
                 <button type="button" aria-label="Добавить один товар">
                   <svg width="12" height="12" fill="currentColor">
@@ -199,7 +199,11 @@ export default {
   },
   methods: {
     gotoPage,
-    AddToCart: {
+    addToCart() {
+      this.$store.commit(
+        'addProductToCart',
+        { productId: this.product.id, amount: this.productAmount },
+      );
     },
   },
 };
