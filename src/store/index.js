@@ -9,7 +9,7 @@ export default new Vuex.Store({
   state: {
     cartProducts: [{
       productId: 1,
-      amount: 2,
+      amount: 1,
     }],
   },
   mutations: {

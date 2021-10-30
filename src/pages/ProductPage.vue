@@ -97,7 +97,7 @@
             </fieldset>
 
             <div class="item__row">
-              <div class="form__counter">
+              <!-- <div class="form__counter">
                 <button type="button" aria-label="Убрать один товар">
                   <svg width="12" height="12" fill="currentColor">
                     <use xlink:href="#icon-minus"></use>
@@ -111,8 +111,8 @@
                     <use xlink:href="#icon-plus"></use>
                   </svg>
                 </button>
-              </div>
-
+              </div> -->
+              <cartAmount :amount.sync='productAmount' />
               <button class="button button--primery" type="submit">
                 В корзину
               </button>
@@ -179,8 +179,12 @@ import gotoPage from '@/helpers/gotoPage';
 import products from '@/data/products';
 import categories from '@/data/categories';
 import numberFormat from '@/helpers/numberFormat';
+import cartAmount from '@/components/CartAmount.vue';
 
 export default {
+  components: {
+    cartAmount,
+  },
   data() {
     return {
       productAmount: 1,

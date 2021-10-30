@@ -7,7 +7,7 @@
     </svg>
   </button>
 
-  <input type="text" v-model.number="amount" name="count">
+  <input type="text" v-model.number="itemAmount" name="count">
 
   <button type="button" aria-label="Добавить один товар" @click.prevent='itemAmount++' style='cursor: pointer;'>
     <svg width="10" height="10" fill="currentColor">
@@ -24,7 +24,7 @@ export default ({
   computed: {
     itemAmount: {
       set(value) {
-        if (value >= 0) {
+        if (value >= 1) {
           this.$emit('update:amount', value);
         }
       },
