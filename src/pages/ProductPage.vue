@@ -1,6 +1,8 @@
 <template>
 <!-- eslint-disable max-len -->
-    <main class="content container">
+    <div v-if='productsLoading'> Загрузка товара</div>
+    <div v-else-if='!productData'> Не удалось загрузить товар</div>
+    <main class="content container" v-else>
     <div class="content__top">
       <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
@@ -24,7 +26,7 @@
     <section class="item">
       <div class="item__pics pics">
         <div class="pics__wrapper">
-          <img width="570" height="570" :src="product.image" :alt="product.title">
+          <img width="570" height="570" :src="product.image.file.url" :alt="product.title">
         </div>
       </div>
 
@@ -97,21 +99,6 @@
             </fieldset>
 
             <div class="item__row">
-              <!-- <div class="form__counter">
-                <button type="button" aria-label="Убрать один товар">
-                  <svg width="12" height="12" fill="currentColor">
-                    <use xlink:href="#icon-minus"></use>
-                  </svg>
-                </button>
-
-                <input type="text"  v-model.number='productAmount'>
-
-                <button type="button" aria-label="Добавить один товар">
-                  <svg width="12" height="12" fill="currentColor">
-                    <use xlink:href="#icon-plus"></use>
-                  </svg>
-                </button>
-              </div> -->
               <cartAmount :amount.sync='productAmount' />
               <button class="button button--primery" type="submit">
                 В корзину
@@ -176,10 +163,10 @@
 
 <script>
 import gotoPage from '@/helpers/gotoPage';
-import products from '@/data/products';
-import categories from '@/data/categories';
 import numberFormat from '@/helpers/numberFormat';
 import cartAmount from '@/components/CartAmount.vue';
+import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 export default {
   components: {
@@ -188,6 +175,9 @@ export default {
   data() {
     return {
       productAmount: 1,
+      productData: null,
+      productsLoading: false,
+      productsLoadingFailed: false,
     };
   },
   filters: {
@@ -195,10 +185,10 @@ export default {
   },
   computed: {
     product() {
-      return products.find((product) => product.id === +this.$route.params.id);
+      return this.productData;
     },
     category() {
-      return categories.find((category) => category.id === this.product.categoryId);
+      return this.productData.category;
     },
   },
   methods: {
@@ -208,6 +198,27 @@ export default {
         'addProductToCart',
         { productId: this.product.id, amount: this.productAmount },
       );
+    },
+    loadProduct() {
+      this.productsLoading = true;
+      this.productsLoadingFailded = false;
+
+      axios.get(`${API_BASE_URL}/api/products/${this.$route.params.id}`)
+        // eslint-disable-next-line no-return-assign
+        .then((response) => this.productData = response.data)
+        // eslint-disable-next-line no-return-assign
+        .catch(() => this.productsLoadingFailded = true)
+        // eslint-disable-next-line no-return-assign
+        .then(() => this.productsLoading = false);
+    },
+  },
+  watch: {
+    // eslint-disable-next-line func-names
+    '$route.params.id': {
+      handler() {
+        this.loadProduct();
+      },
+      immediate: true,
     },
   },
 };

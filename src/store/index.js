@@ -50,7 +50,7 @@ export default new Vuex.Store({
       return getters.cartDetailProducts.reduce((acc, item) => item.product.price * item.amount + acc, 0);
     },
     cartTotalAmount(state) {
-      return state.cartProducts.length;
+      return state.cartProducts.reduce((acc, item) => acc + item.amount, 0);
     },
   },
 });

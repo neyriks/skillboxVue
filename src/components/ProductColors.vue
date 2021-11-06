@@ -2,10 +2,10 @@
 <!-- eslint-disable max-len -->
 <div>
   <ul class="colors">
-    <li class="colors__item" v-for="color in colorfilter" :key="color.colorId">
+    <li class="colors__item" v-for="color in colorfilter" :key="color.id">
       <label class="colors__label">
-        <input class="colors__radio sr-only" type="radio" name="color" :value="color.colorId" checked="" v-model="currentColor">
-        <span class="colors__value" :style="{'background-color': color.colorName}">
+        <input class="colors__radio sr-only" type="radio" name="color" :value="color.id" checked="" v-model="currentColor">
+        <span class="colors__value" :style="{'background-color': color.code}">
         </span>
       </label>
     </li>
