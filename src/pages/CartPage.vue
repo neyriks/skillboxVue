@@ -26,7 +26,10 @@
     <section class="cart">
       <form class="cart__form form" action="#" method="POST">
         <div class="cart__field">
-          <ul class="cart__list">
+          <div v-if="this.$store.state.loading">
+            <v-spinner></v-spinner>
+          </div>
+          <ul v-else class="cart__list">
             <CartItem v-for='item in products' :key='item.productId' :item='item'/>
           </ul>
         </div>
@@ -52,12 +55,13 @@
 import numberFormat from '@/helpers/numberFormat';
 import { mapGetters } from 'vuex';
 import CartItem from '@/components/CartItem.vue';
+import VSpinner from '@/components/VSpinner.vue';
 
 export default {
   filters: {
     numberFormat,
   },
-  components: { CartItem },
+  components: { CartItem, VSpinner },
   computed: {
     ...mapGetters({ products: 'cartDetailProducts', totalPrice: 'cartTotalPrice', totalAmount: 'cartTotalAmount' }),
   },
