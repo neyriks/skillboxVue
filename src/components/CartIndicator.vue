@@ -1,7 +1,7 @@
 <template>
 <!-- eslint-disable max-len -->
 <div>
-  <span v-if='this.$store.state.cartProducts.length == 0'>
+  <span v-if='loading'>
     <v-spinner></v-spinner>
   </span>
   <router-link v-else class="header__cart" aria-label="Корзина с товарами" :to='{ name: "cart"}'>
@@ -14,13 +14,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 import VSpinner from '@/components/VSpinner.vue';
 
 export default {
   components: { VSpinner },
   computed: {
     ...mapGetters({ totalAmount: 'cartTotalAmount' }),
+    ...mapState(['loading']),
   },
 };
 </script>

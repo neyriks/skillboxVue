@@ -1,5 +1,5 @@
 <template>
-<!-- eslint-disable max-len -->
+  <!-- eslint-disable max-len -->
   <li class="cart__item product">
   <div class="product__pic">
     <img :src="item.product.image" width="120" height="120" :alt="item.product.title">
@@ -17,7 +17,7 @@
     {{ (item.amount * item.product.price) | numberFormat }} ₽
   </b>
 
-  <button class="product__del button-del" type="button" aria-label="Удалить товар из корзины" @click.prevent='deleteProduct(item.productId)'>
+  <button class="product__del button-del" type="button" aria-label="Удалить товар из корзины" @click.prevent='deleteProductFromCart(item.productId)'>
     <svg width="20" height="20" fill="currentColor">
       <use xlink:href="#icon-close"></use>
     </svg>
@@ -29,7 +29,7 @@
 
 import cartAmount from '@/components/CartAmount.vue';
 import numberFormat from '@/helpers/numberFormat';
-import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default ({
   components: { cartAmount },
@@ -41,12 +41,12 @@ export default ({
         return this.item.amount;
       },
       set(value) {
-        this.$store.commit('updateCartProductAmount', { productId: this.item.productId, amount: value });
+        this.$store.dispatch('updateCartProductAmount', { productId: this.item.productId, amount: value });
       },
     },
   },
   methods: {
-    ...mapMutations({ deleteProduct: 'deleteCartProduct' }),
+    ...mapActions(['deleteProductFromCart']),
   },
 });
 </script>

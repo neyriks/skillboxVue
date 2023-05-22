@@ -100,10 +100,13 @@
 
             <div class="item__row">
               <cartAmount :amount.sync='productAmount' />
-              <button class="button button--primery" type="submit">
+              <button class="button button--primery" type="submit" :disabled='productAddSending'>
                 В корзину
               </button>
             </div>
+
+            <div v-show='productAdded'>Товар добавлен в корзину</div>
+            <div v-show='productAddSending'>Добавляем товар в корзину...</div>
           </form>
         </div>
       </div>
@@ -166,6 +169,7 @@ import gotoPage from '@/helpers/gotoPage';
 import numberFormat from '@/helpers/numberFormat';
 import cartAmount from '@/components/CartAmount.vue';
 import axios from 'axios';
+import { mapActions } from 'vuex';
 import { API_BASE_URL } from '../config';
 
 export default {
@@ -178,6 +182,9 @@ export default {
       productData: null,
       productsLoading: false,
       productsLoadingFailed: false,
+
+      productAdded: false,
+      productAddSending: false,
     };
   },
   filters: {
@@ -194,10 +201,13 @@ export default {
   methods: {
     gotoPage,
     addToCart() {
-      this.$store.commit(
-        'addProductToCart',
-        { productId: this.product.id, amount: this.productAmount },
-      );
+      this.productAdded = false;
+      this.productAddSending = true;
+      this.addProductToCart({ productId: this.product.id, amount: this.productAmount })
+        .then(() => {
+          this.productAdded = true;
+          this.productAddSending = false;
+        });
     },
     loadProduct() {
       this.productsLoading = true;
@@ -211,6 +221,7 @@ export default {
         // eslint-disable-next-line no-return-assign
         .then(() => this.productsLoading = false);
     },
+    ...mapActions(['addProductToCart']),
   },
   watch: {
     // eslint-disable-next-line func-names
