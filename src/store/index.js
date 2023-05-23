@@ -17,6 +17,10 @@ export default new Vuex.Store({
     loading: Boolean,
   },
   mutations: {
+    resetCart(state) {
+      state.cartProducts = [];
+      state.cartProductsData = [];
+    },
     updateCartProductAmount(state, { productId, amount }) {
       const itemProduct = state.cartProducts.find((item) => item.productId === productId);
 
