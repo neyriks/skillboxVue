@@ -81,6 +81,7 @@ export default new Vuex.Store({
         },
       })
         .then((response) => {
+          this.state.loading = false;
           context.commit('updateOrderInfo', response.data);
         });
     },
