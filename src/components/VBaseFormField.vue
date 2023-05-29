@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len -->
 <template>
 
-<label for="form__label">
+<label for="form__label" class="form__label">
     <slot/>
     <span class='form__value'>{{ title }}</span>
     <span class="form__error" v-if="error">{{ error }}</span>

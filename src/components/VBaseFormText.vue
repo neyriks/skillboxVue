@@ -1,15 +1,15 @@
 <!-- eslint-disable max-len -->
 <template>
-    <v-base-form-field :title='title' :error='error'>
-        <textarea class="form__input" v-model="dataValue" :type='type' :placeholder="placeholder"></textarea>
-    </v-base-form-field>
+  <v-base-form-field :title='title' :error='error'>
+    <input class='form__input' type="text" v-model='dataValue' name='name' :placeholder="placeholder">
+  </v-base-form-field>
 </template>
 
 <script>
 import formFieldMixin from '@/mixins/formFieldMixin';
 
 export default {
-  props: ['type'],
+  props: ['type', 'error'],
   mixins: [formFieldMixin],
 };
 </script>

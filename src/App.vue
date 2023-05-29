@@ -22,7 +22,7 @@
     <div class="footer__wrapper container">
       <ul class="footer__links">
         <li>
-          <router-link class="footer__link" href="#" :to='{ name: "name" }'>
+          <router-link class="footer__link" href="#" :to='{ name: "main" }'>
             Каталог
           </router-link>
         </li>

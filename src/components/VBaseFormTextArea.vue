@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len -->
 <template>
     <v-base-form-field :title='title' :error='error'>
-        <input class='form__input form__input--area' type="text" v-model='dataValue' name='name' :placeholder="placeholder">
+      <textarea class="form__input form__input--area" v-model="dataValue" :placeholder="placeholder"></textarea>
     </v-base-form-field>
 </template>
 
