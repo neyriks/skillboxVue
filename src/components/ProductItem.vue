@@ -15,7 +15,6 @@
       {{ product.price | numberFormat}} ₽
     </span>
 
-    <!-- <ProductColors :colorfilter='colorfilter' :selected-color.sync='color'/> -->
     <ProductColors :colorfilter='product.colors' :selected-color.sync='color'/>
   </li>
 </template>
@@ -23,7 +22,6 @@
 <script>
 import gotoPage from '@/helpers/gotoPage';
 import numberFormat from '@/helpers/numberFormat';
-// import colorfilter from '../data/colorfilter';
 import ProductColors from './ProductColors.vue';
 
 export default {
@@ -36,11 +34,6 @@ export default {
   filters: {
     numberFormat,
   },
-  // computed: {
-  //   colorfilter() {
-  //     return colorfilter.filter((color) => this.product.colorsId.includes(color.id));
-  //   },
-  // },
   components: {
     ProductColors,
   },

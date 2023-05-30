@@ -106,7 +106,6 @@
 import axios from 'axios';
 import { API_BASE_URL } from '@/config';
 import ProductColors from './ProductColors.vue';
-// import colorfilter from '../data/colorfilter';
 
 export default {
   data() {
